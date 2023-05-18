@@ -17,6 +17,7 @@ public class FoodController {
     @Autowired
     private FoodRepository repository;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<FoodResponseDTO> getAll() {
         List<FoodResponseDTO> foodList = repository.findAll().stream()
@@ -24,6 +25,7 @@ public class FoodController {
         return foodList;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodRequestDTO data) {
         Food response = new Food(data);
